@@ -31,5 +31,7 @@ const deleteTodo = async(req, res) => {
 
 export {
   create, 
-  index
+  index,
+  deleteTodo as delete,
+  
 }
