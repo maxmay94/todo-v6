@@ -10,3 +10,17 @@ const create = async(req, res) => {
     return res.status(500).json(err)
   }
 }
+
+const index = async(req, res) => {
+  try {
+    const todos = await Todo.fin({})
+    return res.status(200).json(todos)
+  } catch(err) {
+    return res.status(500).json(err)
+  }
+}
+
+export {
+  create, 
+  index
+}
