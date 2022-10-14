@@ -39,9 +39,21 @@ const update = async(req, res) => {
   }
 }
 
+const markDone = async(req, res) => {
+  try {
+    const todo = await Todo.findByIdAndUpdate(req.params.id, req.body)
+    todo.completed = !todo.completed
+    await todo.save()
+    return res.status(201).json(todo)
+  } catch(err) {
+    return res.status(500).json(err)
+  }
+}
+
 export {
   create, 
   index,
   deleteTodo as delete,
-  update
+  update,
+  markDone
 }
