@@ -20,6 +20,15 @@ const index = async(req, res) => {
   }
 }
 
+const deleteTodo = async(req, res) => {
+  try {
+    await Todo.findByIdAndDelete(req.params.id)
+    return res.status(204).end()
+  } catch(err) {
+    return res.status(500).json(err)
+  }
+}
+
 export {
   create, 
   index
