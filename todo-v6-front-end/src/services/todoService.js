@@ -36,7 +36,20 @@ export const deleteTodo = async(todoId, title) => {
   try {
     await fetch(`${BASE_URL}/${todoId}`, {
       method: 'DELETE',
-      headers: { 'Authorization' : `Bearer ${tokenService.getToken()}` }
+      headers: { Authorization : `Bearer ${tokenService.getToken()}` }
+    })
+  } catch(err) {
+    throw err
+  }
+}
+
+export const doTodo = async(todoId) => {
+  try {
+    await fetch(`${BASE_URL}/${todoId}/done`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${tokenService.getToken()}`
+      }
     })
   } catch(err) {
     throw err

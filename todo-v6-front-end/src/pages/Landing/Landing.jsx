@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 
 import Todo from '../../components/Todo/Todo'
 import NewTodo from "../../components/NewTodo/NewTodo"
-import { getAllTodos, createTodo, deleteTodo } from "../../services/todoService"
+import { getAllTodos, createTodo, deleteTodo, doTodo } from "../../services/todoService"
 
 const Landing = ({ user }) => {
   let [todos, setTodos] = useState([{}])
@@ -24,6 +24,16 @@ const Landing = ({ user }) => {
       const todoData = await getAllTodos()
       setTodos(todoData)
       setNewTodo('')
+    } catch(err) {
+      throw err
+    }
+  }
+
+  const handleDoTodo = async(todoId) => {
+    try {
+      await doTodo(todoId)
+      const todoData = await getAllTodos()
+      setTodos(todoData)
     } catch(err) {
       throw err
     }
@@ -54,6 +64,7 @@ const Landing = ({ user }) => {
             <Todo 
               todo={todo}
               deleteTodo={handleDeleteTodo}
+              doTodo={handleDoTodo}
             />
           </div>
         ))

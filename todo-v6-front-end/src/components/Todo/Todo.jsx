@@ -8,7 +8,7 @@ const Todo = ({todo, doTodo, deleteTodo, update, setUpdate, updateTodo}) => {
     : 'bg-blue-500 hover:bg-blue-600 text-center w-2/3 mx-auto rounded p-5 my-5 drop-shadow-xl' 
 
   let decoration = todo.completed ? 
-    'font-bold line-though mb-5'
+    'font-bold line-through mb-5'
     : 'font-bold mb-5'
 
 
