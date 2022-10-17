@@ -32,10 +32,13 @@ const Todo = ({todo, doTodo, deleteTodo, update, setUpdate, updateTodo}) => {
               className='p-1 w-full rounded m-1'
               type="text" 
               value={update}
-              placeholder='TODO'
+              placeholder='TODO: '
               onChange={(e) => setUpdate(e.target.value)}
             />
-            <button className='bg-green hover:bg-green-600 p-1 w-full rounded m-1'>
+            <button 
+              className='bg-green hover:bg-green-600 p-1 w-full rounded m-1'
+              onClick={() => updateTodo(todo._id, update)}
+            >
               save change
             </button>
           </div>

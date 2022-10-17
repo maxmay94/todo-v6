@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react"
 
 import Todo from '../../components/Todo/Todo'
 import NewTodo from "../../components/NewTodo/NewTodo"
-import { getAllTodos, createTodo, deleteTodo, doTodo } from "../../services/todoService"
+import { getAllTodos, createTodo, deleteTodo, doTodo, updateTodo } from "../../services/todoService"
 
 const Landing = ({ user }) => {
   let [todos, setTodos] = useState([{}])
   let [newTodo, setNewTodo] = useState('')
+  let [update, setUpdate] = useState('')
 
 
   useEffect(() => {
@@ -49,6 +50,17 @@ const Landing = ({ user }) => {
     }
   }
 
+  const handleUpdateTodo = async(todoId) => {
+    try {
+      await updateTodo(todoId, update)
+      const todoData = await getAllTodos()
+      setTodos(todoData)
+      setUpdate('')
+    } catch(err) {
+      throw err
+    }
+  }
+
   return (
     <div className='h-screen bg-teal-800'>
       <h1 className="text-center font-bold text-2xl text-slate-300 pt-10">What Are We Doing Today?</h1>
@@ -65,6 +77,9 @@ const Landing = ({ user }) => {
               todo={todo}
               deleteTodo={handleDeleteTodo}
               doTodo={handleDoTodo}
+              update={update}
+              setUpdate={setUpdate}
+              updateTodo={handleUpdateTodo}
             />
           </div>
         ))

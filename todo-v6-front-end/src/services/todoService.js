@@ -55,3 +55,22 @@ export const doTodo = async(todoId) => {
     throw err
   }
 }
+
+export const updateTodo = async(todoId, title) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${todoId}`, {
+      method: 'PATCH',
+      headers: {
+        'conent-type' : 'application/json',
+        Authorization: `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify({
+        title: title
+      })
+    })
+    const data = await res.json()
+    return data
+  } catch(err) {
+    throw err
+  }
+}
