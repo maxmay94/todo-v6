@@ -7,7 +7,7 @@ const NewTodo = ({createTodo, newTodo, setNewTodo}) => {
           type="text" 
           required
           value={newTodo}
-          placeholder='TODO: '
+          placeholder=' TODO: '
           onChange={(e) => setNewTodo(e.target.value)}
         />
       <button

@@ -32,9 +32,12 @@ export const createTodo = async(todo) => {
   }
 }
 
-export const deleteTodo = async(todoId) => {
+export const deleteTodo = async(todoId, title) => {
   try {
-
+    await fetch(`${BASE_URL}/${todoId}`, {
+      method: 'DELETE',
+      headers: { 'Authorization' : `Bearer ${tokenService.getToken()}` }
+    })
   } catch(err) {
     throw err
   }

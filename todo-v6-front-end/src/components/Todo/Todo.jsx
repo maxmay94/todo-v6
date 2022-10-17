@@ -3,11 +3,11 @@ import 'reactjs-popup/dist/index.css'
 
 const Todo = ({todo, doTodo, deleteTodo, update, setUpdate, updateTodo}) => {
   
-  const background = todo.completed ?
+  let background = todo.completed ?
     'bg-gray-500 hover:bg-gray-600 text-center w-2/3 mx-auto rounded p-5 my-5 drop-shadow-xl'   
     : 'bg-blue-500 hover:bg-blue-600 text-center w-2/3 mx-auto rounded p-5 my-5 drop-shadow-xl' 
 
-  const decoration = todo.completed ? 
+  let decoration = todo.completed ? 
     'font-bold line-though mb-5'
     : 'font-bold mb-5'
 
