@@ -1,10 +1,9 @@
-import styles from './Landing.module.css'
-
 const Landing = ({ user }) => {
   return (
-    <main className={styles.container}>
-      <h1>hello, {user ? user.name : 'friend'}</h1>
-    </main>
+    <div className='h-screen bg-teal-800'>
+      <h1 className="text-center font-bold text-2xl text-slate-300 pt-10">What Are We Doing Today?</h1>
+      
+    </div>
   )
 }
 
