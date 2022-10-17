@@ -13,7 +13,7 @@ const create = async(req, res) => {
 
 const index = async(req, res) => {
   try {
-    const todos = await Todo.fin({})
+    const todos = await Todo.find({})
     return res.status(200).json(todos)
   } catch(err) {
     return res.status(500).json(err)
