@@ -61,8 +61,8 @@ export const updateTodo = async(todoId, title) => {
     const res = await fetch(`${BASE_URL}/${todoId}`, {
       method: 'PATCH',
       headers: {
-        'conent-type' : 'application/json',
-        Authorization: `Bearer ${tokenService.getToken()}`
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${tokenService.getToken()}`
       },
       body: JSON.stringify({
         title: title
